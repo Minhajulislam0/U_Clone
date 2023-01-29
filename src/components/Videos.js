@@ -3,12 +3,14 @@ import { Stack, Box } from "@mui/material";
 import VideoCard from "./VideoCard";
 import ChannelCard from "./ChannelCard";
 
-export default function Videos({ videos }) {
+function Videos({ videos, direction }) {
+  if (!videos?.length) return "Loading";
+
   return (
     <Stack
+      direction={direction || "row"}
       alignContent="flex-start"
       flexWrap="wrap"
-      direction="row"
       justifyContent="flex-start"
       alignItems="flex-start"
       gap={1}
@@ -22,3 +24,5 @@ export default function Videos({ videos }) {
     </Stack>
   );
 }
+
+export default Videos;
